@@ -16,7 +16,7 @@ Contains all the business entities an application consists of. In our example th
 #### Use Cases
 Contains application specific business rules. These use cases orchestrate the flow of data to and from the entities. In our example some of the use cases are: *AddMeal*, *AddRestaurant*, *DeleteById* etc.
 #### Interface Adapters
-This layer is a set of adapters (controllers, presenters, and gateways) that convert data from the format most convenient for the use cases and entities, to the format most convenient for some external agency such as the DB or the Web. In other words, is an entry and exit points to the Use Cases layer. In our example we implemented controllers and presenters together and these are the PostController and the UserController.
+This layer is a set of adapters (controllers, presenters, and gateways) that convert data from the format most convenient for the use cases and entities, to the format most convenient for some external agency such as the DB or the Web. In other words, is an entry and exit points to the Use Cases layer. In our example we implemented controllers and presenters together and theseis the UserController.
 #### Frameworks and Drivers
 The outermost layer is generally composed of frameworks and tools such as the Database, the Web Framework, etc.
 ### How to run it
