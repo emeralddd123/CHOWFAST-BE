@@ -26,6 +26,16 @@ mongoDbConnection(mongoose, config, {
 }).connectToMongo();
 
 const redisClient = redisConnection(redis, config).createRedisClient();
+// console.log("Redis client:", redisClient);
+console.log("Redis client connected:", redisClient && redisClient.connected);
+// Check if the Redis client emits the 'ready' event, which indicates a successful connection
+redisClient.on('ready', () => {
+    console.log('Redis client connected: true');
+  });
+  
+  redisClient.on('error', (err) => {
+    console.error('Redis connection error:', err);
+  });
 
 // routes for each endpoint
 routes(app, express, redisClient);
