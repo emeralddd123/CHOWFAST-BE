@@ -1,5 +1,8 @@
 import user from "../../../src/entities/user";
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+const Joi = require('joi');
+
 export default function addUser(
   username,
   password,
@@ -10,9 +13,28 @@ export default function addUser(
   authService
 ) {
   // TODO: add a proper validation (consider using @hapi/joi)
-  if (!username || !password || !email) {
-    throw new Error("username, password and email fields cannot be empty");
+//   if (!username || !password || !email) {
+//     throw new Error("username, password and email fields cannot be empty");
+//   }
+const schema = Joi.object({
+    username: Joi.string().required(),
+    password: Joi.string().required(),
+    email: Joi.string().email().required(),
+});
+    
+    // Validate input data against the schema
+  const validation = schema.validate({
+    username,
+    password,
+    email,
+  });
+
+  // Check for validation errors
+  if (validation.error) {
+    throw new Error(validation.error.details[0].message);
   }
+
+
 
   const newUser = user(
     username,
