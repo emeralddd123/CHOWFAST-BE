@@ -7,4 +7,3 @@ export default function deliveryInfo(orderId, fee, status, estimatedTime, delive
         getDelivererDetails: () => delivererDetails
     }
 }
-
