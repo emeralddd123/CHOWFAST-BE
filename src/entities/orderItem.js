@@ -6,4 +6,3 @@ export default function orderItem(menuItemId, vendorId, price, quantity) {
         getQuantity: () => quantity
     }
 }
-
